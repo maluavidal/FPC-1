@@ -1,9 +1,9 @@
-def successor(num): # função que retorna o sucessor do número passado
+def successorFn(num): # função que retorna o sucessor do número passado
     return num + 1
 
 def sumFn(num1, num2):
     for _ in range(num2): # o range definirá a quantidade de vezes que 1 será somado a num1, incrementando esse valor a cada laço
-        num1 = successor(num1)
+        num1 = successorFn(num1)
     return num1
 
 def multiplyFn(num1, num2): 
@@ -18,5 +18,29 @@ def exponentialFn(num1, num2):
         result = multiplyFn(result, num1)
     return result
 
-print(exponentialFn(3, 0))
+result = []
+
+while True:
+    operation = input().split()
+    if len(operation) >= 2:
+        function = operation[0]
+        a = int(operation[1])
+
+    if len(operation) >= 3:
+        b = int(operation[2])
+
+    if function == "Suc":
+        result.append(successorFn(a))
+    if function == "Soma":
+        result.append(sumFn(a, b))
+    if function == "Mult" or function == "Multi":
+        result.append(multiplyFn(a, b))
+    if function == "Exp":
+        result.append(exponentialFn(a, b))
+    if not operation:
+        break
+
+results = len(result)
+for i in range(results - 1):
+    print(result[i])
     
