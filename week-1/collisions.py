@@ -13,3 +13,4 @@ if distance < min_distance:
     print(1)
 if distance >= min_distance:
     print(0)
+    
